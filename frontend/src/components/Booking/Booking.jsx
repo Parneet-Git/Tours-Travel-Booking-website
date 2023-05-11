@@ -16,7 +16,7 @@ const Booking = ({ tour, avgRating }) => {
         userEmail: user && user.email,
         tourName: title,
         fullName: '',
-        phone: '',
+        phone: 0,
         guestSize: 0,
         price: 0,
         bookAt: ''
@@ -48,9 +48,9 @@ const Booking = ({ tour, avgRating }) => {
             if(!user || user === undefined || user === null) {
                 return alert('Please Sign in');
             }
-
+            console.log(booking)
             const res = await fetch(`${BASE_URL}/booking`, {
-                method: 'post',
+                method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
@@ -59,7 +59,6 @@ const Booking = ({ tour, avgRating }) => {
             });
 
             const result = await res.json();
-            
             if(!res.ok) {
                 return alert(result.message);
             }
@@ -94,7 +93,7 @@ const Booking = ({ tour, avgRating }) => {
                         <input type="text" placeholder="Full Name" id="fullName" onChange={handleChange} />
                     </FormGroup>
                     <FormGroup>
-                        <input type="number" placeholder="Phone" id="phone" onChange={handleChange} />
+                        <input type="number" min={1111111111} max={9999999999} placeholder="Phone" id="phone" onChange={handleChange} />
                     </FormGroup>
                     <FormGroup className="d-flex align-items-center gap-3">
                         <input type="date" placeholder="" id="bookAt" onChange={handleChange} />

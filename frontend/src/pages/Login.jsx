@@ -39,7 +39,7 @@ const Login = () => {
 
       const result = await res.json();
       if (!res.ok) {
-        alert(result.message);
+        return alert(result.message);
       }
 
       dispatch({ type: 'LOGIN_SUCCESS', payload: result.data });
