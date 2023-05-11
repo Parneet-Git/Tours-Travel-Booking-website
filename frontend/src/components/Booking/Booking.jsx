@@ -4,6 +4,7 @@ import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import { BASE_URL } from '../../utils/config'
+import displayPayment from '../../utils/PaymentGateway'
 const Booking = ({ tour, avgRating }) => {
 
     const { price, reviews, title, maxGroupSize } = tour
@@ -37,10 +38,9 @@ const Booking = ({ tour, avgRating }) => {
             return alert('Please fill the details');
         }
 
-        if(booking.guestSize > maxGroupSize) {
+        if(booking.guestSize > maxGroupSize || booking.guestSize <= 0) {
             return alert(`Guests are more than the required capacity\nMax Group Size is: ${maxGroupSize}`);
         }
-        console.log(booking);
 
         try {
             if(!user || user === undefined || user === null) {
