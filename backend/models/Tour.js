@@ -20,8 +20,7 @@ const tourSchema = new mongoose.Schema(
       required: true,
     },
     photo: {
-      type: String,
-      required: true,
+      type: String
     },
     desc: {
       type: String,

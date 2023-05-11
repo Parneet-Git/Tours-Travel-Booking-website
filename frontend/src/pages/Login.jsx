@@ -38,7 +38,6 @@ const Login = () => {
       });
 
       const result = await res.json();
-
       if (!res.ok) {
         alert(result.message);
       }

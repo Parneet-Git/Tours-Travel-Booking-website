@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import CommonSection from '../shared/CommonSection'
-import '../styles/tour.css'
-import TourCard from './../shared/TourCard'
-import SearchBar from './../shared/SearchBar'
-import Newsletter from './../shared/Newsletter'
+import CommonSection from '../../shared/CommonSection'
+import '../../styles/tour.css'
+import TourCard from '../../shared/TourCard'
+import SearchBar from '../../shared/SearchBar'
+import Newsletter from '../../shared/Newsletter'
 import { Col, Row, Container } from 'reactstrap'
-import useFetch from '../hooks/useFetch'
-import { BASE_URL } from '../utils/config'
+import useFetch from '../../hooks/useFetch'
+import { BASE_URL } from '../../utils/config'
 
-const Tours = () => {
-
+const DeleteTours = () => {
+  window.scrollTo(0, 0);
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
-  
-  const deleteBtn = false;
+
+  const deleteBtn = true;
 
   const { data: tours, loading, error } = useFetch(`${BASE_URL}/tours?page=${page}`);
   const { data: toursCount } = useFetch(`${BASE_URL}/tours/search/getToursCount`);
@@ -76,4 +76,4 @@ const Tours = () => {
   );
 }
 
-export default Tours
+export default DeleteTours

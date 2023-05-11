@@ -44,13 +44,13 @@ const loginUser = async (req, res) => {
             }
             // password is correct
             else {
-                const { password, role, ...rest } = user._doc;
+                const { password, ...rest } = user._doc;
                 const jwtToken = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "15d" });
 
                 // set token in browser cookies & send response to client
                 res.cookie('accessToken', jwtToken, { httpOnly: true, expires: jwtToken.expiresIn })
                     .status(200)
-                    .send({ success: true, jwtToken, data: { ...rest }, role });
+                    .send({ success: true, jwtToken, data: { ...rest }});
             }
         }
 

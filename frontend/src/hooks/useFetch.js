@@ -1,19 +1,22 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 // to fetch data from the given url
 const useFetch = (url) => {
     const [data, setData] = useState([])
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-    
+
     // fetching data whenever there is change in url
     useEffect(() => {
-        const fetchData = async() => {
+        const fetchData = async () => {
             setLoading(true)
             try {
-                const res = await fetch(url)
+                const res = await fetch(url, {
+                    credentials: 'include'
+                })
 
-                if(!res.ok) {
+
+                if (!res.ok) {
                     setError('failed to fetch')
                 }
 
@@ -31,9 +34,9 @@ const useFetch = (url) => {
 
         fetchData();
     }, [url])
-    
+
     // returning fetched data from the server
-  return {
+    return {
         data,
         error,
         loading

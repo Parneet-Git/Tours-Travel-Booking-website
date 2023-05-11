@@ -47,9 +47,19 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+const usersCount = async (req, res) => {
+    try {
+        const count = await User.countDocuments({});
+        res.status(200).send({ success: true, data: count });
+    } catch (error) {
+        res.status(500).send({ success: false, message: 'Failed to get users count', error });
+    }
+}
+
 module.exports = {
     updateUser,
     deleteUser,
     getSingleUser,
-    getAllUsers
+    getAllUsers,
+    usersCount
 }

@@ -10,6 +10,7 @@ const tourRoute = require('./routes/tours');
 const userRoute = require('./routes/users');
 const reviewRoute = require('./routes/reviews')
 const bookingRoute = require('./routes/bookings');
+const imageRoute = require('./routes/image');
 
 dotenv.config();
 const app = express();
@@ -36,11 +37,13 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 // routes path and redirecting...
-app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/tours', tourRoute);
-app.use('/api/v1/users', userRoute);
-app.use('/api/v1/review', reviewRoute);
-app.use('/api/v1/booking', bookingRoute);
+const routePath = '/api/v1';
+app.use(`${routePath}/auth`, authRoute);
+app.use(`${routePath}/tours`, tourRoute);
+app.use(`${routePath}/users`, userRoute);
+app.use(`${routePath}/review`, reviewRoute);
+app.use(`${routePath}/booking`, bookingRoute);
+app.use(`${routePath}/image`, imageRoute);
 
 // listening at PORT : 5000
 app.listen(PORT, () => {

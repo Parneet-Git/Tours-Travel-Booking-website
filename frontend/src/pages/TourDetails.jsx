@@ -14,7 +14,7 @@ const TourDetails = () => {
   const { id } = useParams();
   const reviewMsgRef = useRef('');
   const [tourRating, setTourRating] = useState(5);
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   // fetching data from database
   const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
@@ -43,9 +43,9 @@ const TourDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
-    
+
     try {
-      if(!user || user === undefined || user === null) {
+      if (!user || user === undefined || user === null) {
         return alert('Please sign in');
       }
 
@@ -65,7 +65,7 @@ const TourDetails = () => {
       });
 
       const result = await res.json();
-      if(!res.ok) {
+      if (!res.ok) {
         return alert(result.message);
       }
       alert('Review Submitted');
@@ -77,7 +77,7 @@ const TourDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [tour])
-  
+
 
   return (
     <>
@@ -96,7 +96,7 @@ const TourDetails = () => {
             <Row>
               <Col lg="8">
                 <div className="tour__content">
-                  <img src={photo} alt="" />
+                  <img src={`${BASE_URL}/image/${photo}`} alt="" />
                   <div className="tour__info">
                     <h2>{title}</h2>
 
@@ -152,8 +152,8 @@ const TourDetails = () => {
                     rating__group">
                         {
                           [...Array(5)].map((item, idx) =>
-                            <span key={idx} onClick={() => setTourRating(idx+1)}>
-                              {idx+1} <i className="ri-star-s-fill"></i>
+                            <span key={idx} onClick={() => setTourRating(idx + 1)}>
+                              {idx + 1} <i className="ri-star-s-fill"></i>
                             </span>
                           )
                         }

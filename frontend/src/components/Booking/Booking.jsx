@@ -18,6 +18,7 @@ const Booking = ({ tour, avgRating }) => {
         fullName: '',
         phone: '',
         guestSize: 0,
+        price: 0,
         bookAt: ''
     })
 
@@ -31,7 +32,9 @@ const Booking = ({ tour, avgRating }) => {
     //send data to the server
 
     const handleClick = async(e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        booking.price = totalAmount;
 
         if(booking.fullName === '' || booking.phone === '' || booking.guestSize === 0) {
             return alert('Please fill the details');
@@ -40,7 +43,6 @@ const Booking = ({ tour, avgRating }) => {
         if(booking.guestSize > maxGroupSize) {
             return alert(`Guests are more than the required capacity\nMax Group Size is: ${maxGroupSize}`);
         }
-        console.log(booking);
 
         try {
             if(!user || user === undefined || user === null) {

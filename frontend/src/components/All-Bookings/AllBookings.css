@@ -1,0 +1,35 @@
+.dashboard {
+    text-align: center;
+    color: var(--secondary-color);
+    margin: 0.75rem 0;
+}
+
+.brief-info {
+    display: flex;
+    justify-content: space-around;
+    gap: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.brief-info .nums {
+    background-color: var(--secondary-color);
+    padding: 2rem 2.5rem;
+    border-radius: 7px;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    gap: 2rem;
+}
+
+.brief-info .number {
+    font-weight: bold;
+}
+
+.brief-info .icon {
+    font-size: 2rem;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: var(--secondary-color) !important;
+}
