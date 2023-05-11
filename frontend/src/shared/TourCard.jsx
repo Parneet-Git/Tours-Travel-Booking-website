@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import calculateAvgRating from '../utils/avgRating'
 
 import './tour-card.css'
+import { BASE_URL } from '../utils/config'
 
 const TourCard = ({tour}) => {
    const {_id, title, city, photo, price, featured, reviews }= tour;
@@ -16,7 +17,7 @@ const TourCard = ({tour}) => {
     <div className='tour__card'>
       <Card>
         <div className="tour__img">
-          <img src={photo} alt="tour-img" />
+          <img src={`${BASE_URL}/image/${photo}`} alt="tour-img" />
          {featured && <span>Featured</span>}
         </div>
 
