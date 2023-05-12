@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const bookingSchema = new mongoose.Schema({
     userId: {
-        type: String
+        type: String,
+        required: true
     },
     userEmail: {
         type: String
@@ -16,6 +17,10 @@ const bookingSchema = new mongoose.Schema({
         required: true
     },
     guestSize: {
+        type: Number,
+        required: true
+    },
+    price: {
         type: Number,
         required: true
     },

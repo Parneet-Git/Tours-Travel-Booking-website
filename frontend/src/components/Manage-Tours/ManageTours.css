@@ -1,0 +1,39 @@
+.manage-tours {
+    box-shadow: 0 0 40px #0003;
+    padding: 3rem;
+    text-align: center;
+    margin: 3rem 1rem;
+}
+
+.manage-tours .heading {
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+}
+
+.manage-tours .services {
+    margin: auto;
+    width: 20rem;
+}
+
+.manage-tours .service {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    display: flex;
+    border: 1px solid var(--secondary-color);
+}
+
+.manage-tours .service .icon {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--secondary-color);
+}
+
+.manage-tours .service .link {
+    width: -webkit-fill-available;
+    text-decoration: none;
+    color: black;
+}

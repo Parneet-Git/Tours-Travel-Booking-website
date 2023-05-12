@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { updateUser, deleteUser, getSingleUser, getAllUsers } = require('../controllers/userController');
+const { updateUser, deleteUser, getSingleUser, getAllUsers, usersCount } = require('../controllers/userController');
 const { verifyUser, verifyAdmin } = require('../utils/verifyToken');
 
 // update user
@@ -10,5 +10,7 @@ router.delete('/:id', verifyUser, deleteUser);
 router.get('/:id', verifyUser, getSingleUser);
 // get all users
 router.get('/', verifyAdmin, getAllUsers);
+// get users count
+router.get('/user/count', verifyAdmin, usersCount);
 
 module.exports = router;

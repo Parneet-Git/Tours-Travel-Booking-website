@@ -9,16 +9,28 @@ import { AuthContext } from "../../Context/AuthContext";
 const nav__links = [
   {
     path: "/home",
-    display: "Home"
-
-  },
-  {
-    path: "/about",
-    display: "About",
+    display: "Home",
+    for: "user"
   },
   {
     path: "/tours",
-    display: 'Tours'
+    display: 'Tours',
+    for: "user"
+  },
+  {
+    path: 'bookings',
+    display: 'Your Bookings',
+    for: "user"
+  },
+  {
+    path: 'allBookings',
+    display: 'All Bookings',
+    for: "admin"
+  },
+  {
+    path: 'manageTours',
+    display: 'Manage Tours',
+    for: "admin"
   }
 ]
 
@@ -27,6 +39,7 @@ const Header = () => {
   const menuRef = useRef(null);
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
+
 
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
@@ -67,13 +80,18 @@ const Header = () => {
             <div className="navigation" ref={menuRef} onClick={toggleMenu}>
               <ul className="menu d-flex align-items-center gap-5">
                 {
-                  nav__links.map((item, index) => {
-                    return (<li className="nav__item" key={index}>
+                  nav__links.filter(item => {
+                    return (
+                      (user ? user.role === 'user' ? item.for === 'user' : item : item.for === 'user')
+                    );
+                  }).map((item, index) => {
+                    return (
+                    <li className="nav__item" key={index}>
                       <NavLink to={item.path} className={navClass =>
                         navClass.isActive ? "active__link" : " "}
                       >{item.display}</NavLink>
-                    </li>)
-                  })
+                    </li>
+                  )})
                 }
               </ul>
             </div>

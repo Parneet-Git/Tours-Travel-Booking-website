@@ -14,13 +14,15 @@ const tourRoute = require('./routes/tours');
 const userRoute = require('./routes/users');
 const reviewRoute = require('./routes/reviews')
 const bookingRoute = require('./routes/bookings');
+const imageRoute = require('./routes/image');
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const corsOptions = {
-    origin: true,
-    credentials: true
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }
 
 const razorpay = new Razorpay({
@@ -72,13 +74,16 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
+app.options('/api/v1/auth/login', cors());
 
 // routes path and redirecting...
-app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/tours', tourRoute);
-app.use('/api/v1/users', userRoute);
-app.use('/api/v1/review', reviewRoute);
-app.use('/api/v1/booking', bookingRoute);
+const routePath = '/api/v1';
+app.use(`${routePath}/auth`, authRoute);
+app.use(`${routePath}/tours`, tourRoute);
+app.use(`${routePath}/users`, userRoute);
+app.use(`${routePath}/review`, reviewRoute);
+app.use(`${routePath}/booking`, bookingRoute);
+app.use(`${routePath}/image`, imageRoute);
 
 // listening at PORT : 5000
 app.listen(PORT, () => {

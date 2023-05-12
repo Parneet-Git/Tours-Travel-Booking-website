@@ -19,6 +19,7 @@ const Booking = ({ tour, avgRating }) => {
         fullName: '',
         phone: '',
         guestSize: 0,
+        price: 0,
         bookAt: ''
     })
 
@@ -32,7 +33,9 @@ const Booking = ({ tour, avgRating }) => {
     //send data to the server
 
     const handleClick = async(e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        booking.price = totalAmount;
 
         if(booking.fullName === '' || booking.phone === '' || booking.guestSize === 0) {
             return alert('Please fill the details');

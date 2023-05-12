@@ -1,0 +1,71 @@
+.add_tour_container {
+    margin: 1rem 0;
+    padding-bottom: 2rem;
+    box-shadow: 0 0 50px #0004;
+    text-align: center;
+}
+
+.add_tour_container .heading {
+    color: white;
+    background-color: var(--secondary-color);
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+}
+
+.add_tour_container .add_tour {
+    padding: 0 5vw;
+}
+
+.add_tour_container input,
+.add_tour_container textarea {
+    border: 1px solid var(--secondary-color);
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    width: 18.75rem;
+    background-color: white;
+    box-shadow: 4px 4px 1px var(--secondary-color);
+    transition: all 0.4s;
+}
+
+.mb-3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add_tour_container label {
+    height: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    border: 2px solid var(--secondary-color);
+}
+
+.add_tour_container input:focus,
+.add_tour_container textarea:focus {
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+.add_tour_container input[type="radio"] {
+    box-shadow: none;
+}
+
+.add_tour_container input[type="radio"]:checked {
+    background-color: var(--secondary-color);
+    top: 8px;
+    bottom: 8px;
+}
+
+.add_tour_container .featured_input {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.add_tour_container input[type="radio"] {
+    width: auto;
+    margin-right: 0.2rem;
+}
+
+.add_tour_container .auth__btn {
+    width: 50%;
+}
