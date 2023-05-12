@@ -23,7 +23,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyUser = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.user.id === req.params.id || req.user.role === 'admin') {
+        if (req.user.id === req.body.userId || req.user.role === 'admin') {
             next();
         } else {
             res.status(401).send('User not authenticated');
