@@ -7,4 +7,8 @@
 .thank_you h1{
     font-size: 3.6rem;
     font-family: var(--subtitle-font-name);
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
+

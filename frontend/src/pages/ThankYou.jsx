@@ -10,7 +10,7 @@ const ThankYou = () => {
             <Col lg = "12" className="pt-5 text-center" >
             <div className="thank_you">
                 <span><i className="ri-checkbox-circle-line"></i></span>
-                <h1 className="mb-3 fw-semibold">Thank You</h1>
+                <h1 className="mb-3 fw-semibold" >                    Thank You</h1>
 
                 <h3 className="mb-4">Your Tour is Booked.</h3>
 

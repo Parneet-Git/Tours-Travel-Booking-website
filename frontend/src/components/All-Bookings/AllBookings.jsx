@@ -106,3 +106,5 @@ const AllBookings = () => {
 }
 
 export default AllBookings
+
+

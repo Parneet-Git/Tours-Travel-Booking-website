@@ -30,7 +30,7 @@ const TourDetails = () => {
     city,
     distance,
     maxGroupSize,
-  } = tour;
+  } =tour;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
@@ -50,7 +50,6 @@ const TourDetails = () => {
       }
 
       const reviewObj = {
-        userId: user && user._id,
         username: user?.username,
         reviewText,
         rating: tourRating
