@@ -9,6 +9,8 @@ const registerUser = async (req, res) => {
         const salt = bcrypt.genSaltSync(10);
         const hashPassword = bcrypt.hashSync(req.body.password, salt);
 
+        console.log(req.body)
+
 
         const newUser = new User({
             username: req.body.username,
