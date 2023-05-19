@@ -27,7 +27,7 @@ mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => {
+}).then(async () => {
     console.log('MongoDB database connected');
 }).catch((error) => {
     console.log('MongoDB database connection failed', error);

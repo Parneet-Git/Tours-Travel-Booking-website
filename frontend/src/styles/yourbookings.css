@@ -1,0 +1,28 @@
+.bookings-container {
+    margin: 2rem 0;
+}
+
+.bookings-container .all-bookings .custom-row {
+    display: flex;
+    text-align: center;
+}
+
+.bookings-container .all-bookings .custom-row .custom-col {
+    padding: 0.75rem 0.5rem;
+    flex: 1 0;
+}
+
+.bookings-container .all-bookings .custom-row:nth-child(1) {
+    font-weight: bold;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: var(--secondary-color);
+}
+
+.bookings-container .all-bookings .custom-row {
+    border: 1px solid var(--secondary-color);
+}
+
+.bookings-container .all-bookings .custom-col:nth-child(1) {
+    text-transform: capitalize;
+}

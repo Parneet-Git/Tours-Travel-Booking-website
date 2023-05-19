@@ -19,7 +19,7 @@ const NewsLetter = () => {
         "template_5v37nk3",
         {
           to_email: email,
-          message: "Thank you for subscribing.",
+          message: "Thank you for subscribing!",
         },
         "2jw80cdomum4L3vvG"
       )

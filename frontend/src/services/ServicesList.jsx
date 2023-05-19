@@ -1,27 +1,24 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
 import { Col } from "reactstrap";
-import weatherImg from "../assets/images/weather.png";
-import guideImg from "../assets/images/guide.png";
-import customizationImg from "../assets/images/customization.png";
 
 const serviceData = [
   {
-    imgUrl: weatherImg,
-    title: "Calculate Weather",
-    desc: "Before travelling , know the weather of your desitnation.",
+    icon: "ri-sun-foggy-fill",
+    title: "Check Weather",
+    desc: "Before travelling , know the current weather of your destination."
   },
 
   {
-    imgUrl: guideImg,
-    title: "Best Tour Guide",
-    desc: "Get the best tour guides , offers from our website!",
+    icon: "ri-chat-check-fill",
+    title: "Great Reviews",
+    desc: "Get Reviews for each tour before you plan a wonderful trip."
   },
   {
-    imgUrl: customizationImg,
-    title: "Customization",
-    desc: "You will get a chance to customize the hotel rooms.",
-  },
+    icon: "ri-newspaper-fill",
+    title: "Personalized Newsletter",
+    desc: "We serve Personalized Newsletter for our featured tours directly in your mail"
+  }
 ];
 
 const ServicesList = () => {

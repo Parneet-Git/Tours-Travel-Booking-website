@@ -113,7 +113,7 @@ const Footer = () => {
                   </span>
                   Email:
                 </h6>
-                <p className="mb-0">team@gmail.com</p>
+                <p className="mb-0">advenista@gmail.com</p>
               </ListGroupItem>
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
                 <h6 className="mb-0 d-flex align-items-center gap-2">
@@ -128,7 +128,7 @@ const Footer = () => {
           </Col>
           <Col lg='12' className="text-center pt-5">
             <p className="copyright">
-              Copyright {year}.All rights reserved. No part of this site may be reproduced without our written permission.
+              Copyright {year}. All rights reserved. No part of this site may be reproduced without our written permission.
             </p>
           </Col>
         </Row>

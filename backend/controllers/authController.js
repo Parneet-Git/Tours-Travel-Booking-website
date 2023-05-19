@@ -9,8 +9,6 @@ const registerUser = async (req, res) => {
         const salt = bcrypt.genSaltSync(10);
         const hashPassword = bcrypt.hashSync(req.body.password, salt);
 
-        console.log(req.body)
-
 
         const newUser = new User({
             username: req.body.username,
@@ -50,9 +48,9 @@ const loginUser = async (req, res) => {
                 const jwtToken = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: "15d" });
 
                 // set token in browser cookies & send response to client
-                res.cookie('accessToken', jwtToken, { httpOnly: true, expires: jwtToken.expiresIn })
+                res.cookie('accessToken', jwtToken, { httpOnly: true, expires: (new Date(Date.now() + 15 * 24 * 60 * 60 * 1000) )})
                     .status(200)
-                    .send({ success: true, jwtToken, data: { ...rest }});
+                    .send({ success: true, jwtToken, data: { ...rest } });
             }
         }
 

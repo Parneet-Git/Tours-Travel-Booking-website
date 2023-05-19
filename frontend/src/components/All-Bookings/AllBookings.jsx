@@ -53,7 +53,7 @@ const AllBookings = () => {
                                             </div>
                                             <div className="nums revenue">
                                                 <div className="number">
-                                                    &#8377; {totalRevenue}
+                                                    &#x24; {totalRevenue}
                                                     <br />
                                                     <div className="name">
                                                         Revenue

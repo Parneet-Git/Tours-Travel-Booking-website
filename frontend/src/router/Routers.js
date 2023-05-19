@@ -13,6 +13,7 @@ import AddTour from "../components/Add-Tours/AddTour";
 import UpdateTours from "../components/Update-Tours/UpdateTours";
 import DeleteTours from "../components/Delete-Tours/DeleteTours";
 import EditTour from "../components/EditTour/EditTour";
+import YourBookings from "../pages/YourBookings";
 
 const Router = () => {
   return (
@@ -31,6 +32,7 @@ const Router = () => {
       <Route exact path="/updateTours" element={<UpdateTours />} />
       <Route exact path="/deleteTours" element={<DeleteTours />} />
       <Route exact path="/updateTour/:id" element={<EditTour />} />
+      <Route exact path="/bookings" element={<YourBookings />} />
       <Route path='*' element={<h2><b>404 NOT FOUND</b></h2>}/>
     </Routes>
   );

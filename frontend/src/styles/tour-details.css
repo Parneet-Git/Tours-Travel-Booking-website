@@ -1,20 +1,56 @@
-.tour__content img{
+.tour__content .carousel-item{
+    width: 100%;
+    height: 40rem;
+    margin-bottom: 2.5rem;
+}
+
+.tour__content .carousel-item img {
+    height: 100%;
     width: 100%;
     border-radius: 0.5rem;
     margin-bottom: 2.5rem;
-
 }
 
 .tour__info, 
-.tour__reviews{
+.tour__reviews,
+.weather__updates{
     border-radius: .5rem;
     border: 1px solid rgb(229, 231, 235);
     padding: 2rem;
 }
 
+.weather .weather-info {
+    border: 1px solid var(--secondary-color);
+}
+
+.weather .weather-info {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.weather .weather-info:nth-child(odd) {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+}
+
+/* .weather .weather-info .weather-key,
+.weather .weather-info .weather-value {
+    padding: 1rem;
+} */
+
 .tour__info h2{
     font-size: 1.5rem;
-    
+}
+
+.tour__info h5,
+.tour__reviews h4,
+.weather__updates h4{
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
 .tour__info span{
@@ -38,11 +74,6 @@
      margin-bottom: 2.5rem;
 }
 
-.tour__info h5{
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
 .tour__info p{
     line-height: 30px; 
     font-size: 1rem;
@@ -57,8 +88,10 @@
     cursor: pointer;
 }
 
-.tour__reviews h4{
-    margin-bottom: 3rem;
+.tour__reviews h4,
+.weather__updates h4{
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
 .review__input{
@@ -75,44 +108,50 @@
     width: 100%;
     padding: 0.5rem 0;
     border: none; 
-
 }
 
 .review__input input:focus{
     outline: none;
-    
 }
+
 .review__item{
     display: flex;
     align-items: center;
     column-gap: 1rem;
     margin-bottom: 2rem;
 }
+
 .review__item img{
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50px;
     object-fit: cover;
 }
+
 .user__reviews{
     margin-top: 2.5rem;
 }
+
 .review__item h5{
     font-size: 1rem;
     margin-bottom: 0;
 }
+
 .review__item p{
     font-size: 0.9rem;
     color: var(--text-color);
 }
+
 .review__item h6{
     font-size: 1.1rem;
     color: var(--text-color);
 }
+
 .review__item span i{
     font-size: 1.2rem;
     color: var(--secondary-color);
 }
+
 .review__item span{
     font-weight: 500;
 }
