@@ -10,12 +10,12 @@ const quick__links = [
 
   },
   {
-    path: "/about",
-    display: "About",
+    path: "/tours",
+    display: "Tours",
   }, 
   {
-    path: "/tours",
-    display: 'Tours'
+    path: "/bookings",
+    display: 'Your Bookings'
   }
 ];
 
