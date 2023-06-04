@@ -33,7 +33,7 @@ const Router = () => {
       <Route exact path="/deleteTours" element={<DeleteTours />} />
       <Route exact path="/updateTour/:id" element={<EditTour />} />
       <Route exact path="/bookings" element={<YourBookings />} />
-      <Route path='*' element={<h2><b>404 NOT FOUND</b></h2>}/>
+      <Route path='*' element={<h2><b>404 NOT FOUND</b></h2>} />
     </Routes>
   );
 };

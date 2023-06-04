@@ -20,7 +20,7 @@ const nav__links = [
   {
     path: 'bookings',
     display: 'Your Bookings',
-    for: "user"
+    for: "logged-user"
   },
   {
     path: 'allBookings',
@@ -82,7 +82,7 @@ const Header = () => {
                 {
                   nav__links.filter(item => {
                     return (
-                      (user ? user.role === 'user' ? item.for === 'user' : item : item.for === 'user')
+                      (user ? user?.role === 'admin' ? item : item.for !== 'admin' : item.for === 'user')
                     );
                   }).map((item, index) => {
                     return (

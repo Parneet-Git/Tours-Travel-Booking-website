@@ -4,12 +4,13 @@ import Slider from 'react-slick'
 import ava01 from '../../assets/images/ava-1.jpg'
 import ava02 from '../../assets/images/ava-2.jpg'
 import ava03 from '../../assets/images/ava-3.jpg'
+
 const Testimonials = () => {
     const settings= {
         dots:true,
         infinite:true,
         autoplay:true,
-        speed:1000,
+        speed:2000,
         swipeToSlide:true,
         autoplaySpeed:2000,
         slidesToShow:3,

@@ -46,7 +46,7 @@ const ManageTours = () => {
             </Row>
           </Container>
           :
-          'You are Not Authorized'
+          <h4 className="text-center mt-5">You are Not Authorized</h4>
       }
     </>
   )

@@ -16,8 +16,11 @@
 }
 .footer__link-title{
     color: var(--heading-color);
-    margin-bottom: 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
+
 .footer__quick-links li a{
     text-decoration: none;
     color: var(--text-color);
@@ -30,4 +33,22 @@
 .copyright{
     color: var(--text-color);
     font-size: 1rem;
+}
+
+@media only screen and (max-width : 992px) {
+    .footer .col-lg-3,
+    .footer .col-lg-3 ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer .col-lg-3 h5 {
+        margin-right: 1rem;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .footer .contact ul{
+        display: block;
+    }
 }

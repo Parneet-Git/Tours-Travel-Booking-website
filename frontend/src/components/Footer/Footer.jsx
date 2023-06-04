@@ -8,10 +8,6 @@ const quick__links = [
     path: "/home",
     display: "Home"
 
-  },
-  {
-    path: "/about",
-    display: "About",
   }, 
   {
     path: "/tours",
@@ -20,11 +16,6 @@ const quick__links = [
 ];
 
 const quick__links2 = [
-  {
-    path: "/gallery",
-    display: "Gallery"
-
-  },
   {
     path: "/login",
     display: "Login",
@@ -44,7 +35,7 @@ const Footer = () => {
         <Row>
           <Col lg='3'>
             <div className="logo">
-              <img src={logo} alt=""/>
+              <img src={logo} alt="" />
               <p>The best travel booking website. Find best deals , best way to reach.</p>
               <div className="social__links d-flex align-items-center gap-4">
                 <span>
@@ -74,7 +65,7 @@ const Footer = () => {
             <h5 className="footer__link-title">Discover</h5>
             <ListGroup className="footer__quick-links">
               {
-                quick__links.map((item,index)=>(   //map() creates a new array from calling a function for every array element.
+                quick__links.map((item, index) => (   //map() creates a new array from calling a function for every array element.
                   <ListGroupItem key={index} className="ps-0 border-0">
                     <Link to={item.path}>{item.display}</Link>
                   </ListGroupItem>
@@ -86,7 +77,7 @@ const Footer = () => {
             <h5 className="footer__link-title">Quick Links</h5>
             <ListGroup className="footer__quick-links">
               {
-                quick__links2.map((item,index)=>(
+                quick__links2.map((item, index) => (
                   <ListGroupItem key={index} className="ps-0 border-0">
                     <Link to={item.path}>{item.display}</Link>
                   </ListGroupItem>
@@ -94,9 +85,9 @@ const Footer = () => {
               }
             </ListGroup>
           </Col>
-          <Col lg='3'>
+          <Col lg='3' className='contact'>
             <h5 className="footer__link-title">Contact</h5>
-            <ListGroup className="footer__quick-links">
+            <ListGroup className="footer__quick-links contact">
               <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-3">
                 <h6 className="mb-0 d-flex align-items-center gap-2">
                   <span>
@@ -126,6 +117,8 @@ const Footer = () => {
               </ListGroupItem>
             </ListGroup>
           </Col>
+        </Row>
+        <Row>
           <Col lg='12' className="text-center pt-5">
             <p className="copyright">
               Copyright {year}. All rights reserved. No part of this site may be reproduced without our written permission.

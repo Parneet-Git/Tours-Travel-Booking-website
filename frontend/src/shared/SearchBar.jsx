@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./search-bar.css";
-import { Col, Form, FormGroup } from "reactstrap";
+import { Col, Form } from "reactstrap";
 import { BASE_URL } from "../utils/config";
 
 const SearchBar = () => {
@@ -34,38 +34,38 @@ const SearchBar = () => {
     <Col ig="12">
       <div className="search__bar">
         <Form className="d-flex align-items-center gap-4">
-          <FormGroup className="d-flex gap-3 form__group form__group-fast">
+          <div className="d-flex gap-3 form__group form__group-fast m-1">
             <span>
               <i className="ri-map-pin-line"></i>
             </span>
 
             <div>
               <h6>Location</h6>
-              <input type="text" placeholder="Where are you going?"
+              <input type="text" placeholder="location"
                 ref={locationRef}
               />
             </div>
-          </FormGroup>
-          <FormGroup className="d-flex gap-3 form__group form__group-fast">
+          </div>
+          <div className="d-flex gap-3 form__group form__group-fast m-1">
             <span>
               <i className="ri-map-pin-time-line"></i>
             </span>
 
             <div>
               <h6>Distance</h6>
-              <input type="number" placeholder="Distance km/h" ref={distanceRef} />
+              <input type="number" placeholder="in km" ref={distanceRef} />
             </div>
-          </FormGroup>
-          <FormGroup className="d-flex gap-3 form__group form__group-last">
+          </div>
+          <div className="d-flex gap-3 form__group form__group-last m-1">
             <span>
               <i className="ri-group-line"></i>
             </span>
 
             <div>
-              <h6>Max People</h6>
+              <h6>People</h6>
               <input type="number" placeholder="0" ref={maxGroupSizeRef} />
             </div>
-          </FormGroup>
+          </div>
 
           <span className="search__icon" type="submit" onClick={searchHandler}>
             <i className="ri-search-line"></i>

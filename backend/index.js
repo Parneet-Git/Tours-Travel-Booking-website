@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+dotenv.config();
 
 // fetching routes
 const authRoute = require('./routes/auth');
@@ -12,7 +13,6 @@ const reviewRoute = require('./routes/reviews')
 const bookingRoute = require('./routes/bookings');
 const imageRoute = require('./routes/image');
 
-dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const corsOptions = {

@@ -15,7 +15,6 @@ const useFetch = (url) => {
                     credentials: 'include'
                 })
 
-
                 if (!res.ok) {
                     setError('failed to fetch')
                 }

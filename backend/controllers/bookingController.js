@@ -12,7 +12,21 @@ const createBooking = async (req, res) => {
     const savedBooking = await newBooking.save();
 
     // create PDF receipt
-    const doc = new PDFDocument();
+    const doc = new PDFDocument({bufferPages: true});
+
+    let buffers = [];
+    doc.on('data', buffers.push.bind(buffers));
+    doc.on('end', () => {
+      let pdfData = Buffer.concat(buffers);
+      res.writeHead(200, {
+        'Content-Length': Buffer.byteLength(pdfData),
+        'Content-Type': 'application/pdf',
+        'Content-disposition': `attachment;filename=booking-receipt-${savedBooking._id}.pdf`,
+        'responseType': 'blob'
+      })
+        .end(pdfData);
+
+    });
 
     const receiptNumber = Math.floor(Math.random() * 1000000000);
     const dateOfBooking = new Date().toLocaleDateString();
@@ -122,23 +136,10 @@ const createBooking = async (req, res) => {
         `Email : advenista@gmail.com                                           Phone No : 9914146239`
       );
 
-    const writeStream = fs.createWriteStream(filePath);
-    doc.pipe(writeStream);
     doc.end();
 
-    // Handle the 'finish' event to know when the PDF is saved
-    writeStream.on('finish', () => {
-      // Inform the user that the PDF is saved and provide the download link
-      const downloadLink = `/downloads/${filename}`;
-    });
-
-    // send response
-    res.status(200).send({
-      success: true,
-      message: "Your tour is booked",
-      data: savedBooking,
-    });
   } catch (err) {
+    console.log(err)
     res
       .status(500)
       .send({ success: false, message: "Failed to create booking", err });

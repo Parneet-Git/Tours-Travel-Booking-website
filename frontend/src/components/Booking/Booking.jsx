@@ -4,14 +4,14 @@ import { Form, FormGroup, ListGroup, ListGroupItem, Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import { BASE_URL } from '../../utils/config'
+
 const Booking = ({ tour, avgRating }) => {
 
     const { price, reviews, title, maxGroupSize } = tour
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const {user} = useContext(AuthContext);
 
-    console.log(user);
     const [booking, setBooking] = useState({
         userId: user?._id,
         userEmail: user?.email,
@@ -38,7 +38,7 @@ const Booking = ({ tour, avgRating }) => {
         booking.price = totalAmount;
 
         if(booking.fullName === '' || booking.phone === '' || booking.guestSize === 0) {
-            return alert('Please fill the details');
+            return alert('Please fill the details!');
         }
 
         if(booking.guestSize > maxGroupSize) {
@@ -47,6 +47,10 @@ const Booking = ({ tour, avgRating }) => {
 
         if(booking.phone < 1000000000 || booking.phone > 9999999999) {
             return alert('Invalid Phone Number!');
+        }
+
+        if(new Date(booking.bookAt) < new Date()) {
+            return alert('Please select a date after tomorrow!');
         }
 
         try {
@@ -62,14 +66,18 @@ const Booking = ({ tour, avgRating }) => {
                 body: JSON.stringify(booking)
             });
 
-            const result = await res.json();
-            if(!res.ok) {
-                return alert(result.message);
+            if(res.status === 200) {
+                const blob = await res.blob();
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.setAttribute('download', 'booking-receipt.pdf');
+                document.body.appendChild(link);
+                link.click();
             }
 
             navigate("/thank-you");
         } catch (error) {
-            alert(error.message);
+            console.log(error)
         }
 
     }

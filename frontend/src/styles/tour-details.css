@@ -156,3 +156,27 @@
     font-weight: 500;
 }
 
+@media only screen and (max-width : 992px) {
+    .carousel {
+        height: 30rem;
+        margin-bottom: 2rem;
+    }
+    .carousel-item img {
+        height: 30rem !important;
+    }
+    .carousel-inner {
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width : 575px) {
+    .weather__updates {
+        padding: 1.5rem 0;
+    }
+    .tour__extra-details {
+        flex-wrap: wrap;
+    }
+    .tour__info span {
+        font-size: 0.75rem !important;
+    }
+}
